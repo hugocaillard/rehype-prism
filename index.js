@@ -7,6 +7,10 @@ const refractor = require('refractor');
 module.exports = (options) => {
   options = options || {};
 
+  if (options.syntaxes) {
+    options.syntaxes.forEach(syntax => refractor.register(syntax));
+  }
+
   if (options.alias) {
     refractor.alias(options.alias);
   }
